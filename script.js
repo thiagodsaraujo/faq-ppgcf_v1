@@ -48,7 +48,6 @@ let currentResults = faqData;
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
-    setupModalHandlers();
 });
 
 function initializeApp() {
@@ -305,179 +304,11 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Modal functionality
-function setupModalHandlers() {
-    const addFaqBtn = document.getElementById('addFaqBtn');
-    const modal = document.getElementById('addFaqModal');
-    const form = document.getElementById('addFaqForm');
-    
-    addFaqBtn.addEventListener('click', openAddFaqModal);
-    form.addEventListener('submit', handleAddFaq);
-    
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeAddFaqModal();
-        }
-    });
-}
 
-function openAddFaqModal() {
-    const modal = document.getElementById('addFaqModal');
-    modal.classList.add('show');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeAddFaqModal() {
-    const modal = document.getElementById('addFaqModal');
-    modal.classList.remove('show');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-    document.body.style.overflow = 'auto';
-    
-    // Reset form
-    document.getElementById('addFaqForm').reset();
-}
-
-function handleAddFaq(e) {
-    e.preventDefault();
-    
-    const formData = {
-        question: document.getElementById('newQuestion').value,
-        answer: document.getElementById('newAnswer').value,
-        topic: document.getElementById('newTopic').value,
-        subtopic: document.getElementById('newSubtopic').value,
-        legalBasis: document.getElementById('newLegalBasis').value,
-        documentation: document.getElementById('newDocumentation').value,
-        deadlines: document.getElementById('newDeadlines').value,
-        details: document.getElementById('newDetails').value
-    };
-    
-    // Process details into array
-    const detailPoints = formData.details
-        .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0)
-        .map(line => line.startsWith('•') ? line.substring(1).trim() : line);
-    
-    // Create new FAQ object
-    const newFaq = {
-        topic: formData.topic,
-        subtopic: formData.subtopic,
-        question: formData.question,
-        answer: formData.answer,
-        details: [{
-            icon: getTopicIcon(formData.topic),
-            category: `Categoria Principal: ${formData.topic}`,
-            points: detailPoints
-        }],
-        legalBasis: formData.legalBasis,
-        documentation: formData.documentation,
-        deadlines: formData.deadlines
-    };
-    
-    // Add to FAQ data
-    faqData.unshift(newFaq);
-    
-    // Update filters
-    updateFiltersWithNewData();
-    
-    // Re-render FAQ
-    applyFilters();
-    
-    // Close modal
-    closeAddFaqModal();
-    
-    // Show success message
-    showSuccessMessage('Pergunta adicionada com sucesso!');
-    
-    // Scroll to top of FAQ section
-    document.querySelector('.faq-section').scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
-
-function getTopicIcon(topic) {
-    const iconMap = {
-        "INGRESSO E ADMISSÃO": "🚪",
-        "ESTRUTURA E GOVERNANÇA": "🏛️",
-        "CORPO DOCENTE": "👥",
-        "QUESTÕES FINANCEIRAS": "💰",
-        "VIDA ACADÊMICA": "🎓",
-        "PRAZOS E SITUAÇÕES ESPECIAIS": "⏰",
-        "ORIENTAÇÃO": "👨‍🏫",
-        "DEFESA E DIPLOMAÇÃO": "📜",
-        "SITUAÇÕES PROBLEMÁTICAS": "⚠️",
-        "DIREITOS E GOVERNANÇA": "⚖️"
-    };
-    return iconMap[topic] || "📝";
-}
-
-function updateFiltersWithNewData() {
-    // Update topic filter
-    const topics = [...new Set(faqData.map(item => item.topic))].sort();
-    const topicFilter = document.getElementById('topicFilter');
-    const currentTopicValue = topicFilter.value;
-    
-    topicFilter.innerHTML = '<option value="">Todos os Tópicos</option>';
-    topics.forEach(topic => {
-        const option = document.createElement('option');
-        option.value = topic;
-        option.textContent = topic;
-        if (topic === currentTopicValue) option.selected = true;
-        topicFilter.appendChild(option);
-    });
-    
-    // Update subtopic filter
-    const subtopics = [...new Set(faqData.map(item => item.subtopic))].sort();
-    const subtopicFilter = document.getElementById('subtopicFilter');
-    const currentSubtopicValue = subtopicFilter.value;
-    
-    subtopicFilter.innerHTML = '<option value="">Todos os Subtópicos</option>';
-    subtopics.forEach(subtopic => {
-        const option = document.createElement('option');
-        option.value = subtopic;
-        option.textContent = subtopic;
-        if (subtopic === currentSubtopicValue) option.selected = true;
-        subtopicFilter.appendChild(option);
-    });
-}
-
-function showSuccessMessage(message) {
-    const successDiv = document.createElement('div');
-    successDiv.className = 'success-message';
-    successDiv.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        ${message}
-    `;
-    
-    document.body.appendChild(successDiv);
-    
-    setTimeout(() => {
-        successDiv.classList.add('show');
-    }, 100);
-    
-    setTimeout(() => {
-        successDiv.classList.remove('show');
-        setTimeout(() => {
-            document.body.removeChild(successDiv);
-        }, 300);
-    }, 3000);
-}
 
 // Add keyboard navigation
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        // Close modal if open
-        const modal = document.getElementById('addFaqModal');
-        if (modal.classList.contains('show')) {
-            closeAddFaqModal();
-            return;
-        }
-        
         // Close any open FAQ items
         document.querySelectorAll('.faq-item.active').forEach(item => {
             item.classList.remove('active');
