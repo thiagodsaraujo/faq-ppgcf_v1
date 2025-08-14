@@ -215,9 +215,11 @@ function applyFilters() {
     const selectedTopic = topicFilter.value;
     const selectedSubtopic = subtopicFilter.value;
 
-    // Show/hide quick access cards based on search
+    // Show/hide quick access cards based on search or any active filter
     const quickAccessSection = document.querySelector('.quick-access');
-    if (searchTerm) {
+    const hasActiveFilters = searchTerm || selectedTopic || selectedSubtopic;
+    
+    if (hasActiveFilters) {
         quickAccessSection.classList.add('hidden');
     } else {
         quickAccessSection.classList.remove('hidden');
