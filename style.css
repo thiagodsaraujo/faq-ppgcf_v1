@@ -147,6 +147,46 @@ body {
     overflow: hidden;
 }
 
+/* Estilização específica para quando o dropdown está aberto */
+.filters select:focus,
+.filters select[aria-expanded="true"] {
+    border-radius: 25px 25px 12px 12px;
+}
+
+/* Customizar a aparência do dropdown nativo */
+.filters select option {
+    padding: 1.2rem 1.5rem;
+    background: white;
+    color: #2d3748;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.filters select option:first-child {
+    border-radius: 12px 12px 0 0;
+    margin-top: 8px;
+}
+
+.filters select option:last-child {
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 8px;
+}
+
+.filters select option:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.filters select option:checked,
+.filters select option:selected {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+}
+
 .filters select::before {
     content: '';
     position: absolute;
@@ -180,24 +220,33 @@ body {
 }
 
 .filters select option {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
     background: white;
     color: #2d3748;
     font-size: 1rem;
     font-weight: 500;
     border: none;
-    transition: all 0.2s ease;
+    border-radius: 12px;
+    margin: 4px 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .filters select option:hover {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+    transform: translateY(-1px);
 }
 
-.filters select option:checked {
+.filters select option:checked,
+.filters select option:selected {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 /* Quick Access Cards */
