@@ -175,7 +175,7 @@ function renderInfoGrid(item) {
             <div class="info-item">
                 <i class="fas fa-book info-icon"></i>
                 <div class="info-content">
-                    <h5>Base Legal <i class="fas fa-external-link-alt legal-link-icon"></i></h5>
+                    <h5>Base Legal <i class="fas fa-external-link-alt legal-link-icon" onclick="openLegalDocument(event)"></i></h5>
                     <p>${item.legalBasis}</p>
                 </div>
             </div>
@@ -371,6 +371,12 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// Function to open legal document
+function openLegalDocument(event) {
+    event.stopPropagation();
+    window.open('https://drive.google.com/file/d/1JLRNmKDOcBQI3TnAFPxKVXyf7K-UTF7o/view?usp=sharing', '_blank', 'noopener,noreferrer');
+}
 
 // Add keyboard navigation
 document.addEventListener('keydown', function(e) {

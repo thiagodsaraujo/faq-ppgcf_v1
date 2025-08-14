@@ -371,6 +371,18 @@ body {
     color: white;
 }
 
+/* Legal link icon */
+.legal-link-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.legal-link-icon:hover {
+    color: #FF0000;
+    transform: scale(1.1);
+}
+
 /* Quick Access Cards */
 .quick-access {
     margin-bottom: 3rem;
