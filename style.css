@@ -127,19 +127,26 @@ body {
 }
 
 .filters select {
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.5rem;
     border: 2px solid #e2e8f0;
     border-radius: 15px;
     background: white;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 200px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 3rem;
 }
 
 .filters select:focus {
     outline: none;
     border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 /* Quick Access Cards */
@@ -479,59 +486,201 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .quick-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    
+    .filters select {
+        width: 100%;
+        min-width: unset;
+        padding: 1.2rem 3.5rem 1.2rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+    
+    .faq-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .faq-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .search-box {
+        margin: 0 0 1.5rem;
+    }
+    
+    .search-box input {
+        padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+        font-size: 1rem;
+        border-radius: 20px;
+    }
+    
+    .search-box i {
+        left: 1.2rem;
+        font-size: 1.2rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .faq-tags {
+        margin-top: 0.75rem;
+    }
+    
+    .faq-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .quick-access h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .main-content {
+        padding: 24px 0;
+        margin-top: -24px;
+        border-radius: 24px 24px 0 0;
+    }
+    
+    .hero {
+        padding: 50px 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.9rem;
+        line-height: 1.2;
     }
     
     .hero p {
         font-size: 1rem;
     }
     
-    .quick-cards {
-        grid-template-columns: 1fr;
+    .hero-subtitle {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
     }
     
-    .filters {
-        flex-direction: column;
-        align-items: center;
+    .quick-card {
+        padding: 1.5rem;
+        border-radius: 16px;
     }
     
-    .filters select {
-        width: 100%;
-        max-width: 300px;
+    .quick-card-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
     }
     
-    .faq-header {
-        flex-direction: column;
-        text-align: center;
+    .quick-card h3 {
+        font-size: 1.1rem;
     }
     
-    .info-grid {
-        grid-template-columns: 1fr;
+    .quick-card p {
+        font-size: 0.85rem;
     }
     
-    .search-box {
-        margin: 0 0 1rem;
+    .faq-header-item {
+        padding: 1.25rem;
+    }
+    
+    .faq-item {
+        border-radius: 12px;
+    }
+    
+    .faq-item.active .faq-content {
+        padding: 0 1.25rem 1.25rem;
+    }
+    
+    .faq-details {
+        padding: 1.25rem;
+        border-radius: 10px;
+    }
+    
+    .info-item {
+        padding: 0.875rem;
+        border-radius: 6px;
+        gap: 0.625rem;
+    }
+    
+    .info-content h5 {
+        font-size: 0.85rem;
+    }
+    
+    .info-content p {
+        font-size: 0.8rem;
+    }
+    
+    .search-section {
+        margin-bottom: 2rem;
+    }
+    
+    .quick-access {
+        margin-bottom: 2rem;
+    }
+    
+    .detail-points li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .faq-answer {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .main-content {
-        padding: 20px 0;
-        margin-top: -20px;
-        border-radius: 20px 20px 0 0;
-    }
-    
+/* Touch improvements for mobile */
+@media (max-width: 768px) {
     .quick-card,
-    .faq-header-item {
-        padding: 1rem;
+    .faq-header-item,
+    .filters select,
+    .search-box input {
+        -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
     }
     
-    .hero {
-        padding: 60px 0;
+    /* Improve touch targets */
+    .faq-chevron {
+        padding: 0.5rem;
+        margin: -0.5rem;
+    }
+    
+    /* Better spacing for touch */
+    .faq-item {
+        margin-bottom: 0.75rem;
+    }
+    
+    .faq-item:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -596,4 +745,33 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* Mobile dropdown enhancements */
+@media (max-width: 768px) {
+    /* Style native select on mobile for better UX */
+    .filters select {
+        background-color: white;
+        color: #2d3748;
+        font-weight: 500;
+    }
+    
+    .filters select option {
+        padding: 1rem;
+        background-color: white;
+        color: #2d3748;
+    }
+    
+    /* Focus styles for better accessibility */
+    .filters select:focus,
+    .search-box input:focus {
+        transform: scale(1.02);
+        transition: all 0.2s ease;
+    }
+    
+    /* Improve visual hierarchy on mobile */
+    .faq-stats {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
