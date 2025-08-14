@@ -151,6 +151,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 3rem;
+    margin-top: 3rem;
     animation: fadeInUp 1.2s ease 0.4s both;
 }
 
