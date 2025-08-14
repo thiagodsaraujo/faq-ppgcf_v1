@@ -309,6 +309,41 @@ function filterByTopic(topic) {
 
 function updateResultsCount(count) {
     resultsCount.textContent = `${count} resultado${count !== 1 ? 's' : ''}`;
+    
+    // Mostrar ou ocultar botão de reset baseado nos filtros ativos
+    const resetBtn = document.getElementById('resetFiltersBtn');
+    const hasActiveFilters = searchInput.value.trim() !== '' || 
+                           topicFilter.value !== '' || 
+                           subtopicFilter.value !== '';
+    
+    if (hasActiveFilters) {
+        resetBtn.classList.add('show');
+    } else {
+        resetBtn.classList.remove('show');
+    }
+}
+
+function resetAllFilters() {
+    // Limpar todos os filtros
+    searchInput.value = '';
+    topicFilter.value = '';
+    subtopicFilter.value = '';
+    
+    // Restaurar filtro de subtópicos
+    populateSubtopicFilter();
+    
+    // Mostrar cards de acesso rápido novamente
+    const quickAccessSection = document.querySelector('.quick-access');
+    quickAccessSection.classList.remove('hidden');
+    
+    // Aplicar filtros (que agora estão vazios)
+    applyFilters();
+    
+    // Scroll suave para o topo da seção FAQ
+    document.querySelector('.faq-section').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
 
 // Utility function for debouncing

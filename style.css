@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -352,12 +351,39 @@ body {
 }
 
 .faq-stats {
-    color: #666;
-    font-size: 0.9rem;
-    background: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reset-filters-btn {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
-    border-radius: 15px;
-    border: 1px solid #e0e0e0;
+    background: rgba(196, 30, 58, 0.1);
+    color: #C41E3A;
+    border: 1px solid rgba(196, 30, 58, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-filters-btn.show {
+    display: flex;
+}
+
+.reset-filters-btn:hover {
+    background: #C41E3A;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(196, 30, 58, 0.2);
+}
+
+.reset-filters-btn i {
+    font-size: 0.8rem;
 }
 
 .faq-list {
