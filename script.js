@@ -86,11 +86,27 @@ function initializeApp() {
     renderQuickAccessCards();
     renderFAQ(faqData);
     updateResultsCount(faqData.length);
+    updateHeroStats();
     
     // Event listeners
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     topicFilter.addEventListener('change', handleFilter);
     subtopicFilter.addEventListener('change', handleFilter);
+}
+
+function updateHeroStats() {
+    // Contar perguntas totais
+    const totalQuestions = faqData.length;
+    
+    // Contar categorias únicas (tópicos)
+    const uniqueTopics = [...new Set(faqData.map(item => item.topic))].length;
+    
+    // Atualizar os elementos no DOM
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length >= 2) {
+        statNumbers[0].textContent = totalQuestions;
+        statNumbers[1].textContent = uniqueTopics;
+    }
 }
 
 function populateFilters() {
