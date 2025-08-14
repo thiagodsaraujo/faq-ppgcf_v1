@@ -144,7 +144,7 @@ function renderInfoGrid(item) {
             <div class="info-item">
                 <i class="fas fa-book info-icon"></i>
                 <div class="info-content">
-                    <h5>Base Legal</h5>
+                    <h5>Base Legal <i class="fas fa-external-link-alt legal-link-icon"></i></h5>
                     <p>${item.legalBasis}</p>
                 </div>
             </div>
