@@ -1,16 +1,100 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Interativo - PPGCF UEPB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h1>Guia Interativo PPGCF</h1>
+                <p>Central de Perguntas e Respostas para Discentes e Docentes</p>
+                <span class="hero-subtitle">Baseado na Resolução/UEPB/CONSEPE/008/2023</span>
+            </div>
+        </div>
+    </section>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Digite sua pergunta ou palavra-chave...">
+                </div>
+                <div class="filters">
+                    <select id="topicFilter">
+                        <option value="">Todos os Tópicos</option>
+                    </select>
+                    <select id="subtopicFilter">
+                        <option value="">Todos os Subtópicos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick Access Cards -->
+            <div class="quick-access">
+                <h2>Acesso Rápido</h2>
+                <div class="quick-cards" id="quickCards">
+                    <!-- Cards serão gerados dinamicamente -->
+                </div>
+            </div>
+
+            <!-- FAQ Content -->
+            <div class="faq-section">
+                <div class="faq-header">
+                    <h2>Perguntas Frequentes</h2>
+                    <div class="faq-stats">
+                        <span id="resultsCount">0 resultados</span>
+                    </div>
+                </div>
+                
+                <div class="faq-list" id="faqContainer">
+                    <!-- FAQ items serão gerados dinamicamente -->
+                </div>
+
+                <!-- No Results -->
+                <div class="no-results" id="noResults">
+                    <i class="fas fa-search"></i>
+                    <h3>Nenhum resultado encontrado</h3>
+                    <p>Tente ajustar sua busca ou filtros.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>PPGCF - UEPB</h3>
+                    <p>Programa de Pós-Graduação em Ciências Farmacêuticas</p>
+                    <p>Universidade Estadual da Paraíba</p>
+                </div>
+                <div class="footer-disclaimer">
+                    <p><i class="fas fa-info-circle"></i> Este é um guia não-oficial gerado por IA para fins de consulta.</p>
+                    <p>Sempre confirme as informações nos documentos oficiais.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PPGCF - UEPB. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
