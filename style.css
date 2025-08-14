@@ -20,15 +20,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: 
-        linear-gradient(135deg, rgba(248, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 24px,
-            rgba(200, 200, 200, 0.3) 24px,
-            rgba(200, 200, 200, 0.3) 25px
-        );
+    background: linear-gradient(135deg, rgba(248, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
     padding: 4rem 0 3rem;
     position: relative;
     overflow: hidden;
@@ -266,15 +258,7 @@ body {
 
 /* Main Content */
 .main-content {
-    background: 
-        #ffffff,
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 24px,
-            rgba(200, 200, 200, 0.2) 24px,
-            rgba(200, 200, 200, 0.2) 25px
-        );
+    background: #ffffff;
     min-height: 100vh;
     padding: 40px 0;
     position: relative;
