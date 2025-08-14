@@ -417,9 +417,10 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 2px solid #f0f0f0;
     position: relative;
+    overflow: hidden;
 }
 
 .quick-card::before {
@@ -431,28 +432,65 @@ body {
     height: 4px;
     background: #FF0000;
     border-radius: 15px 15px 0 0;
+    transition: height 0.4s ease;
+}
+
+.quick-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.05), transparent);
+    transition: left 0.6s ease;
 }
 
 .quick-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 0, 0, 0.2);
+    border-color: rgba(255, 0, 0, 0.3);
+}
+
+.quick-card:hover::before {
+    height: 8px;
+}
+
+.quick-card:hover::after {
+    left: 100%;
 }
 
 .quick-card-icon {
     font-size: 2.5rem;
     color: #FF0000;
     margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.quick-card:hover .quick-card-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: #cc0000;
 }
 
 .quick-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #1a1a1a;
+    transition: color 0.3s ease;
 }
 
 .quick-card p {
     color: #666;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.quick-card:hover h3 {
+    color: #FF0000;
+}
+
+.quick-card:hover p {
+    color: #555;
 }
 
 /* FAQ Section */
