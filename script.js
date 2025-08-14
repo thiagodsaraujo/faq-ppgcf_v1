@@ -184,6 +184,14 @@ function applyFilters() {
     const selectedTopic = topicFilter.value;
     const selectedSubtopic = subtopicFilter.value;
 
+    // Show/hide quick access cards based on search
+    const quickAccessSection = document.querySelector('.quick-access');
+    if (searchTerm) {
+        quickAccessSection.classList.add('hidden');
+    } else {
+        quickAccessSection.classList.remove('hidden');
+    }
+
     let filtered = faqData.filter(item => {
         // Topic filter
         if (selectedTopic && item.topic !== selectedTopic) return false;
