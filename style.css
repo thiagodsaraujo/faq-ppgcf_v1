@@ -79,12 +79,10 @@ body {
     gap: 1rem;
 }
 
-.uepb-text {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    letter-spacing: 0.05em;
-    font-family: 'Ubuntu', sans-serif;
+.uepb-logo-icon {
+    height: 2.2rem;
+    width: auto;
+    object-fit: contain;
 }
 
 .separator {
@@ -794,7 +792,10 @@ body {
         gap: 0.8rem;
     }
 
-    .uepb-text,
+    .uepb-logo-icon {
+        height: 1.8rem;
+    }
+    
     .program-code {
         font-size: 1.8rem;
     }
@@ -915,7 +916,10 @@ body {
         justify-content: center;
     }
 
-    .uepb-text,
+    .uepb-logo-icon {
+        height: 1.5rem;
+    }
+    
     .program-code {
         font-size: 1.5rem;
     }
