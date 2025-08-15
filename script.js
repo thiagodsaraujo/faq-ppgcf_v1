@@ -394,6 +394,24 @@ function openLegalDocument(event) {
     window.open('https://drive.google.com/file/d/1JLRNmKDOcBQI3TnAFPxKVXyf7K-UTF7o/view?usp=sharing', '_blank', 'noopener,noreferrer');
 }
 
+// Back to Top Button functionality
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide back to top button based on scroll position
+window.addEventListener('scroll', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
 // Add keyboard navigation
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
